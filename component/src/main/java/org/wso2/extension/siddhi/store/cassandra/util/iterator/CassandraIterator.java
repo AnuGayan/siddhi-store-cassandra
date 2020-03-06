@@ -85,9 +85,6 @@ public class CassandraIterator implements RecordIterator<Object[]> {
                 case LONG:
                     result.add(row.getLong(attribute.getName()));
                     break;
-                case OBJECT:
-                    result.add(row.getObject(attribute.getName()));
-                    break;
                 case STRING:
                     result.add(row.getString(attribute.getName()));
                     break;

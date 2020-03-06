@@ -18,12 +18,12 @@
   -->
 <cassandraStoreConfig>
     <tableCreateQuery>CREATE TABLE {{KEYSPACE}}.{{TABLE}} ({{COLUMNS}}{{PRIMARY_KEYS}})</tableCreateQuery>
-    <tableCheckQuery>SELECT table_name FROM system_schema.tables where keyspace_name='{{KEYSPACE}}' AND table_name='{{TABLE}}'</tableCheckQuery>
-    <tableValidityQuery>SELECT column_name,kind,type FROM system_schema.columns WHERE keyspace_name='{{KEYSPACE}}' AND table_name='{{TABLE}}'</tableValidityQuery>
+    <tableCheckQuery>SELECT * FROM {{KEYSPACE}}.{{TABLE}}</tableCheckQuery>
+    <tableValidityQuery>SELECT column_name, validator FROM system.schema_columns WHERE keyspace_name='{{KEYSPACE}}'</tableValidityQuery>
     <indexQuery>CREATE INDEX ON {{KEYSPACE}}.{{TABLE}} ({{INDEX}})</indexQuery>
     <recordExistQuery>SELECT * FROM {{KEYSPACE}}.{{TABLE}} WHERE {{CONDITION}} ALLOW FILTERING</recordExistQuery>
     <recordDeleteQuery>DELETE FROM {{KEYSPACE}}.{{TABLE}} WHERE {{CONDITION}}</recordDeleteQuery>
-    <recordInsertQuery>INSERT INTO {{KEYSPACE}}.{{TABLE}} ({{INSERT_VALUES}}) VALUES ({{QUESTION_MARKS}}) IF NOT EXISTS</recordInsertQuery>
+    <recordInsertQuery>INSERT INTO {{KEYSPACE}}.{{TABLE}} ({{INSERT_VALUES}}) VALUES ({{QUESTION_MARKS}})</recordInsertQuery>
     <recordSelectQuery>SELECT {{SELECT_VALUES}} FROM {{KEYSPACE}}.{{TABLE}} WHERE {{CONDITION}} ALLOW FILTERING</recordSelectQuery>
     <recordSelectNoKeyTable>SELECT "_id" FROM {{KEYSPACE}}.{{TABLE}} WHERE {{CONDITION}} ALLOW FILTERING</recordSelectNoKeyTable>
     <recordUpdateQuery>UPDATE {{KEYSPACE}}.{{TABLE}} SET {{COLUMNS_AND_VALUES}} WHERE {{CONDITION}}</recordUpdateQuery>

@@ -62,6 +62,10 @@
             <groupId>com.datastax.cassandra</groupId>
             <artifactId>cassandra-driver-core</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+        </dependency>
     </dependencies>
 
     <profiles>
@@ -108,7 +112,7 @@
                         <artifactId>maven-surefire-plugin</artifactId>
                         <version>2.18.1</version>
                         <configuration>
-                            <skipTests>true</skipTests>
+                            <skipTests>false</skipTests>
                         </configuration>
                     </plugin>
                     <plugin>
@@ -247,6 +251,13 @@
                         <Export-Package>
                             org.wso2.extension.siddhi.store.cassandra.*
                         </Export-Package>
+                        <Private-Package>
+                            com.datastax.driver.core.*,
+                            org.jboss.netty.*,
+                            com.google.common.*;version="${guava.version}"
+<!--                            com.google.common.collect.*;version="${guava.version}",-->
+<!--                            com.google.common.base.*;version="${guava.version}",-->
+                        </Private-Package>
                         <Import-Package>
                             io.siddhi.core.*;version="${siddhi.version.range}",
                             io.siddhi.annotation.*;version="${siddhi.version.range}",

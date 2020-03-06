@@ -45,12 +45,13 @@
         <commons.lang3.version>3.3.2</commons.lang3.version>
         <io.fabric8.version>0.20.0</io.fabric8.version>
         <jacoco.maven.version>0.7.9</jacoco.maven.version>
-        <cassandra.driver.version>3.3.2</cassandra.driver.version>
-        <cassandra.diver.version.range>[3.3.2, 4.0.0)</cassandra.diver.version.range>
+        <cassandra.driver.version>2.1.5</cassandra.driver.version>
+        <cassandra.diver.version.range>[2.1.0, 4.0.0)</cassandra.diver.version.range>
         <siddhi.annotation.version.range>[4.0,5.0)</siddhi.annotation.version.range>
         <siddhi.core.version.range>[4.0,5.0)</siddhi.core.version.range>
         <siddhi.query.version.range>[4.0,5.0)</siddhi.query.version.range>
         <aparche.log4j.version.range>[1.0,2.0)</aparche.log4j.version.range>
+        <guava.version>18.0</guava.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -121,6 +122,13 @@
                 <artifactId>cassandra-driver-core</artifactId>
                 <version>${cassandra.driver.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+
+
         </dependencies>
     </dependencyManagement>
 

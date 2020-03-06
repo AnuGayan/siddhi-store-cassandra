@@ -79,7 +79,7 @@ public class CassandraEventTableConstants {
 
     public static final String TABLE_PROPERTY_CLUSTERING_KEY = "clustering";
     public static final String TABLE_PROPERTY_COLUMN_NAME = "column_name";
-    public static final String TABLE_PROPERTY_KIND = "kind";
+    public static final String TABLE_PROPERTY_KIND = "validator";
     public static final String TABLE_PROPERTY_PARTITION_KEY = "partition_key";
     public static final String TABLE_PROPERTY_TYPE = "type";
 }
