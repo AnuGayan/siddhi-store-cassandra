@@ -715,7 +715,7 @@ public class CassandraEventTable extends AbstractRecordTable {
     }
 
     private void checkTable() {
-        String checkStatement = this.cassandraStoreConfig.getTableCheckQuery().replace("{{KEYSPACE}}", this.keyspace.toLowerCase(Locale.ENGLISH)).replace("{{TABLE}}", this.tableName.toLowerCase(Locale.ENGLISH));
+        String checkStatement = this.cassandraStoreConfig.getTableCheckQuery().replace("{{KEYSPACE}}", this.keyspace).replace("{{TABLE}}", this.tableName);
 
         try {
             this.session.execute(checkStatement);
@@ -764,7 +764,7 @@ public class CassandraEventTable extends AbstractRecordTable {
     }
 
     private void findPersistedKeys() {
-        String checkStatement = this.cassandraStoreConfig.getTableValidityQuery().replace("{{KEYSPACE}}", this.keyspace.toLowerCase(Locale.ENGLISH)).replace("{{TABLE}}", this.tableName.toLowerCase(Locale.ENGLISH));
+        String checkStatement = this.cassandraStoreConfig.getTableValidityQuery().replace("{{KEYSPACE}}", this.keyspace).replace("{{TABLE}}", this.tableName);
         ResultSet result = this.session.execute(checkStatement);
         List<TableMeta> tableColumns = new ArrayList();
         Iterator var4 = result.iterator();

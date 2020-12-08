@@ -17,14 +17,14 @@
   ~ under the License.
   -->
 <cassandraStoreConfig>
-    <tableCreateQuery>CREATE TABLE "{{KEYSPACE}}".{{TABLE}} ({{COLUMNS}}{{PRIMARY_KEYS}})</tableCreateQuery>
-    <tableCheckQuery>SELECT * FROM "{{KEYSPACE}}".{{TABLE}}</tableCheckQuery>
-    <tableValidityQuery>SELECT column_name, validator FROM system.schema_columns WHERE keyspace_name="{{KEYSPACE}}"</tableValidityQuery>
-    <indexQuery>CREATE INDEX ON "{{KEYSPACE}}".{{TABLE}} ({{INDEX}})</indexQuery>
-    <recordExistQuery>SELECT * FROM "{{KEYSPACE}}".{{TABLE}} WHERE {{CONDITION}} ALLOW FILTERING</recordExistQuery>
-    <recordDeleteQuery>DELETE FROM "{{KEYSPACE}}".{{TABLE}} WHERE {{CONDITION}}</recordDeleteQuery>
-    <recordInsertQuery>INSERT INTO "{{KEYSPACE}}".{{TABLE}} ({{INSERT_VALUES}}) VALUES ({{QUESTION_MARKS}})</recordInsertQuery>
-    <recordSelectQuery>SELECT {{SELECT_VALUES}} FROM "{{KEYSPACE}}".{{TABLE}} WHERE {{CONDITION}} ALLOW FILTERING</recordSelectQuery>
-    <recordSelectNoKeyTable>SELECT "_id" FROM "{{KEYSPACE}}".{{TABLE}} WHERE {{CONDITION}} ALLOW FILTERING</recordSelectNoKeyTable>
-    <recordUpdateQuery>UPDATE "{{KEYSPACE}}".{{TABLE}} SET {{COLUMNS_AND_VALUES}} WHERE {{CONDITION}}</recordUpdateQuery>
+    <tableCreateQuery>CREATE TABLE {{KEYSPACE}}.{{TABLE}} ({{COLUMNS}}{{PRIMARY_KEYS}})</tableCreateQuery>
+    <tableCheckQuery>SELECT * FROM {{KEYSPACE}}.{{TABLE}} LIMIT 1</tableCheckQuery>
+    <tableValidityQuery>SELECT column_name, validator FROM system.schema_columns WHERE keyspace_name={{KEYSPACE}}</tableValidityQuery>
+    <indexQuery>CREATE INDEX ON {{KEYSPACE}}.{{TABLE}} ({{INDEX}})</indexQuery>
+    <recordExistQuery>SELECT * FROM {{KEYSPACE}}.{{TABLE}} WHERE {{CONDITION}} ALLOW FILTERING</recordExistQuery>
+    <recordDeleteQuery>DELETE FROM {{KEYSPACE}}.{{TABLE}} WHERE {{CONDITION}}</recordDeleteQuery>
+    <recordInsertQuery>INSERT INTO {{KEYSPACE}}.{{TABLE}} ({{INSERT_VALUES}}) VALUES ({{QUESTION_MARKS}})</recordInsertQuery>
+    <recordSelectQuery>SELECT {{SELECT_VALUES}} FROM {{KEYSPACE}}.{{TABLE}} WHERE {{CONDITION}} ALLOW FILTERING</recordSelectQuery>
+    <recordSelectNoKeyTable>SELECT "_id" FROM {{KEYSPACE}}.{{TABLE}} WHERE {{CONDITION}} ALLOW FILTERING</recordSelectNoKeyTable>
+    <recordUpdateQuery>UPDATE {{KEYSPACE}}.{{TABLE}} SET {{COLUMNS_AND_VALUES}} WHERE {{CONDITION}}</recordUpdateQuery>
 </cassandraStoreConfig>
